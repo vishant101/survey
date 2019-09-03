@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { Text, View} from 'react-native';
+import React, { Component } from 'react'
+import { View} from 'react-native'
 import css from '../styles/CSS'
+import SurveyCard from '../common/SurveyCard'
 
 export default class SurveryHome extends Component {
     render() {
         return (
             <View style={css.container}>
-                <Text>SurveyQuestions</Text>
+                <SurveyCard />
             </View>
         )
     }

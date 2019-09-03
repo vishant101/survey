@@ -1,5 +1,7 @@
 const COLOR = {
-    PRIMARY: '#0047AB'
+    PRIMARY: '#0047AB',
+    MGREY: '#EAEAEA',
+    WHITE: '#FFFFFF',
 }
 
 module.exports = COLOR
