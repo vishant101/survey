@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-
-const GREEN = 'rgba(141,196,63,1)';
+import COLOR from '../styles/Colors'
+import css from '../styles/CSS'
 
 export default class SurveryHome extends Component {
 
@@ -13,23 +13,14 @@ export default class SurveryHome extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={css.container}>
                 <Text>Click the button below to start the survey</Text>
                 <Button
                     title='start'
-                    color={GREEN}
+                    color={COLOR.PRIMARY}
                     onPress={() => this.onStartButtonPress()}
                 />
             </View>
         )
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
