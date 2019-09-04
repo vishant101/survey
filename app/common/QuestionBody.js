@@ -1,9 +1,14 @@
 import React, {Component} from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, TextInput, Button } from 'react-native'
 import css from '../styles/CSS'
 import COLOR from '../styles/Colors'
 
 export default class QuestionBody extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {value: ''};
+	  }
+
 	getInputType(type, id, onPress) {
 		switch(type) {
 			case 'boolean':
@@ -24,11 +29,17 @@ export default class QuestionBody extends Component {
 			case 'integer':
 				return (
 					<View>
-						<Text> Number Types </Text>
+						<TextInput
+							style={{height: 40}}
+							placeholder="Input value here"
+							onChangeText={(value) => this.setState({value})}
+							value={this.state.value}
+							keyboardType='numeric'
+						/>
 						<Button
 							title='Enter Value'
 							color={COLOR.PRIMARY}
-							onPress={() => onPress(id, '45')}
+							onPress={() => onPress(id, this.state.value)}
 						/>
 					</View>
 				)
