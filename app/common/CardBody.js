@@ -4,13 +4,15 @@ import css from '../styles/CSS'
 import QuestionBody from './QuestionBody'
 import SubmitBody from './SubmitBody'
 
-const CardBody = ({ type }) => {
-	if (!type ) {
+const CardBody = ({ cardType, question, questionType, questionID, onPress }) => {
+	if (!cardType ) {
 		return null
 	} else {
 		return (
 			<View style={css.cb_bodyContainer}>
-					{(type == 'Question') ? (<QuestionBody type='Numerical' />) : (<SubmitBody />)}
+					{(cardType == 'Question') ? 
+						(<QuestionBody  question={question} type={questionType} id={questionID} onPress={onPress} />) : 
+						(<SubmitBody onPress={onPress} />)}
 			</View>
 		)
 	}
