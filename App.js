@@ -6,11 +6,11 @@ import {
 import { View } from 'react-native'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import surveyReducer from './app/reducers/SurveyReducer';
+import survey from './app/reducers/SurveyReducer';
 import SurveyHome from './app/views/SurveyHome'
 import SurveyQuestions from './app/views/SurveyQuestions'
 
-const store = createStore(surveyReducer);
+const store = createStore(survey)
 
 const stackNav = createStackNavigator({
     Home: {
@@ -24,10 +24,6 @@ const stackNav = createStackNavigator({
 const AppContainer = createAppContainer(stackNav);
 
 export default class App extends Component {
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
         return (
             <Provider store={store}>
@@ -36,5 +32,3 @@ export default class App extends Component {
         )
 	}
 }
-
-

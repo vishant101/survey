@@ -1,16 +1,23 @@
+import { combineReducers } from 'redux'
+
 const initialState = {
 	questions: [],
-	answers: []
+	answers: {}
 }
 
-function survey(state = initialState, action) {
+function surveyReducer(state = initialState, action) {
+    const newState = { ...state }
+
 	switch (action.type) {
 		case 'SET_QUESTIONS': {
             newState.questions = action.questions
+            console.log(newState)
 			return newState
 		}
 		case 'UPDATE_ANSWER': {
-            return state
+			newState.answers[action.id] = action.value
+			console.log(newState)
+            return newState
 		}
 		default: {
 			return state
@@ -18,4 +25,4 @@ function survey(state = initialState, action) {
 	}
 }
 
-module.exports = survey
+module.exports = combineReducers({ survey: surveyReducer })

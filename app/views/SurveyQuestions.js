@@ -4,7 +4,7 @@ import css from '../styles/CSS'
 import SurveyCard from '../common/SurveyCard'
 import { RESPONSE } from '../../mockApis/questionsAPI'
 
-export default class SurveryHome extends Component {
+export default class SurveryQuestions extends Component {
     render() {
         return (
             <View style={css.container}>
@@ -13,4 +13,3 @@ export default class SurveryHome extends Component {
         )
     }
 }
-

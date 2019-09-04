@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
+import { connect } from 'react-redux';
 import COLOR from '../styles/Colors'
 import css from '../styles/CSS'
 import { BUTTONTEXT, VIEWS } from '../utils/Constants'
+import { RESPONSE } from '../../mockApis/questionsAPI'
 
+class SurveryHome extends Component {
+    constructor(props) {
+        super(props)
+        this.loadQuestions()
+    }
 
-export default class SurveryHome extends Component {
+    loadQuestions(){
+        // TODO: Fetch questions using API
+        this.props.addQuestions(RESPONSE)
+    }
+
     onStartButtonPress(){
         const { navigation } = this.props
         navigation.navigate(VIEWS.QUESTIONS)
@@ -24,3 +35,13 @@ export default class SurveryHome extends Component {
         )
     }
 }
+
+const mapStateToProps = (state, props) => ({})
+
+const mapDispatchToProps = dispatch => ({
+	addQuestions: (questions) => {
+		dispatch({ type: 'SET_QUESTIONS', questions })
+	}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SurveryHome)

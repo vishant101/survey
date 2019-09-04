@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { connect } from 'react-redux';
 import css from '../styles/CSS'
 import CardHeader from '../common/CardHeader'
 import CardBody from '../common/CardBody'
 
-export default class SurveyCard extends Component {
+class SurveyCard extends Component {
     state = {
-        questionCards: [],
         questionIndex: 0
     }
 
     showQuestionCard(index){
-        const {data} = this.props
-        const question = data[index]
+        const {questions} = this.props
+        const question = questions[index]
         return(
             <View style={css.card_container} >
                 <CardHeader title={this.getQuestionHeader(index)}/>
@@ -46,9 +46,8 @@ export default class SurveyCard extends Component {
     }
 
     onQuestionPress(id, value){
-        console.log(value)
         this.setState(previousState => ({ questionIndex: previousState.questionIndex + 1 }))
-        console.log(  this.state.questionIndex)
+        this.props.addAnswer(id, value)
     }
 
     getQuestionHeader(questionNumber){
@@ -59,7 +58,19 @@ export default class SurveyCard extends Component {
 
     render() {
         return(
-            (this.state.questionIndex == this.props.data.length) ? this.showSubmitCard() : this.showQuestionCard(this.state.questionIndex)
+            (this.state.questionIndex == this.props.questions.length) ? this.showSubmitCard() : this.showQuestionCard(this.state.questionIndex)
         )
     }
 }
+
+const mapStateToProps = (state, props) => ({
+    questions: state.survey.questions
+})
+
+const mapDispatchToProps = dispatch => ({
+    addAnswer: (id, value) => {
+		dispatch({ type: 'UPDATE_ANSWER', id, value })
+	}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SurveyCard)
