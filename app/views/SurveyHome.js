@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, Button } from 'react-native'
 import COLOR from '../styles/Colors'
 import css from '../styles/CSS'
-import { BUTTONTEXT, VIEWS }from '../Constants'
+import { BUTTONTEXT, VIEWS } from '../utils/Constants'
 
 
 export default class SurveryHome extends Component {
