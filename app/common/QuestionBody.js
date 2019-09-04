@@ -40,7 +40,7 @@ export default class QuestionBody extends Component {
 	render() {
 		const {type, question, id, onPress} = this.props
 		return (
-			<View style={css.cq_bodyContainer}>
+			<View style={css.cb_bodyContainer}>
 				<Text>{question}</Text>
 				{this.getInputType(type, id, onPress)}
 			</View>

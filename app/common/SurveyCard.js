@@ -3,7 +3,8 @@ import { View } from 'react-native'
 import { connect } from 'react-redux';
 import css from '../styles/CSS'
 import CardHeader from '../common/CardHeader'
-import CardBody from '../common/CardBody'
+import SubmitBody from '../common/SubmitBody'
+import QuestionBody from '../common/QuestionBody'
 
 class SurveyCard extends Component {
     state = {
@@ -16,11 +17,10 @@ class SurveyCard extends Component {
         return(
             <View style={css.card_container} >
                 <CardHeader title={this.getQuestionHeader(index)}/>
-                <CardBody 
-                    cardType={'Question'}
+                <QuestionBody
                     question={question.text}
-                    questionType={question.type}
-                    questionID={question.id}
+                    type={question.type}
+                    id={question.id}
                     onPress={(id, value) => this.onQuestionPress(id, value)}
                 />
             </View>
@@ -31,8 +31,7 @@ class SurveyCard extends Component {
         return(
             <View style={css.card_container} >
                 <CardHeader title={"Submit ?"}/>
-                <CardBody 
-                    cardType={'Submit'}
+                <SubmitBody
                     onPress={(submit) => this.onSubmitPress(submit)}
                 />
             </View>

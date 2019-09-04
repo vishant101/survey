@@ -7,7 +7,7 @@ export default class SubmitBody extends Component {
 	render() {
 		const {onPress} = this.props
 		return (
-			<View style={css.cs_bodyContainer}>
+			<View style={css.cb_bodyContainer}>
 				<Text> If you would like to Submit please click submit, if you would like to start over click start over </Text>
 				<Button
 					title='Start Over'

@@ -6,8 +6,8 @@ const initialState = {
 }
 
 function surveyReducer(state = initialState, action) {
-    const newState = { ...state }
-
+	const newState = { ...state }
+	
 	switch (action.type) {
 		case 'SET_QUESTIONS': {
             newState.questions = action.questions
