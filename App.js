@@ -9,6 +9,7 @@ import { createStore } from 'redux';
 import survey from './app/reducers/SurveyReducer';
 import SurveyHome from './app/views/SurveyHome'
 import SurveyQuestions from './app/views/SurveyQuestions'
+import SurveyResults from './app/views/SurveyResults'
 import COLOR from './app/styles/Colors'
 import css from './app/styles/CSS'
 
@@ -26,6 +27,13 @@ const stackNav = createStackNavigator({
         screen: SurveyQuestions,
         navigationOptions: {
             title: 'Questionaire',
+            headerTitleStyle : css.nb_viewsTextStyle
+        }
+    },
+    Results: {
+        screen: SurveyResults,
+        navigationOptions: {
+            title: 'Results',
             headerTitleStyle : css.nb_viewsTextStyle
         }
     }

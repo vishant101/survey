@@ -41,6 +41,8 @@ class SurveyCard extends Component {
     onSubmitPress(submit){
         if (!submit){
             this.setState(() => ({ questionIndex: 0 }))
+        } else {
+            this.props.onComplete()
         }
     }
 

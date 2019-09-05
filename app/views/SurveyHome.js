@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import COLOR from '../styles/Colors'
 import css from '../styles/CSS'
 import { BUTTONTEXT, VIEWS, STRINGS } from '../utils/Constants'
+import IMAGES from '../utils/Images'
 import { RESPONSE } from '../../mockApis/questionsAPI'
 
 class SurveryHome extends Component {
@@ -26,8 +27,8 @@ class SurveryHome extends Component {
     render() {
         return (
             <View style={css.container}>
-                <Image source={require('../img/doctor.png')} />
-                <Text style={css.homeTextStyle}>{STRINGS.HOMETEXT}</Text>
+                <Image source={IMAGES.DOCTOR} />
+                <Text style={css.containerTextStyle}>{STRINGS.HOMETEXT}</Text>
                 <Button text={BUTTONTEXT.START} onPress={() => this.onStartButtonPress()} />
             </View>
         )
