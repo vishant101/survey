@@ -9,7 +9,12 @@ export default class QuestionBody extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {value: ''};
-	  }
+	}
+
+	submitValue(id, onPress){
+		const value = this.state.value
+		onPress(id, parseFloat(value))
+	}
 
 	getInputType(type, id, onPress) {
 		switch(type) {
@@ -18,11 +23,11 @@ export default class QuestionBody extends Component {
 					<View>
 						<Button
 							text={BUTTONTEXT.YES}
-							onPress={() => onPress(id, 'true')}
+							onPress={() => onPress(id, true)}
 						/>
 						<Button
 							text={BUTTONTEXT.NO}
-							onPress={() => onPress(id, 'false')}
+							onPress={() => onPress(id, false)}
 						/>
 					</View>
 				)
@@ -39,7 +44,7 @@ export default class QuestionBody extends Component {
 						/>
 						<Button
 							text={BUTTONTEXT.ENTERVALUE}
-							onPress={() => onPress(id, this.state.value)}
+							onPress={() => this.submitValue(id, onPress)}
 						/>
 					</View>
 				)

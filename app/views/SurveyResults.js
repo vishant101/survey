@@ -10,18 +10,38 @@ import IMAGES from '../utils/Images'
 import { RESPONSE } from '../../mockApis/questionsAPI'
 
 class SurveyResults extends Component {
-    constructor(props) {
-        super(props)
+    constructor(props){
+        super(props);
+        this.state = {isLoading: true}
+
     }
 
-    onComplete(){
-        const { navigation } = this.props
-        navigation.navigate(VIEWS.HOME)
+    componentDidMount(){
+        return fetch('https://11po8h5h75.execute-api.us-east-2.amazonaws.com/prod', this.getRequest())
+          .then((response) => response.json())
+          .then((responseJson) => { 
+              this.setState({ isLoading: false, results: responseJson.body.hasFlu }) 
+            })
+          .catch((error) => {console.error(error)})
     }
 
-    getResults(type) {
-		switch(type) {
-			case 'negative':
+    getRequest(){
+        const request = {
+            method: 'POST',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(this.props.answers),
+        }
+
+        return request
+    }
+
+    getResults() {
+        console.log(this.state.results)
+		switch(this.state.results) {
+			case false:
 				return (
                     <ResultMessage 
                         heading={STRINGS.NODANGER}
@@ -31,7 +51,7 @@ class SurveyResults extends Component {
                         onPress={() => this.onComplete()}
                     />
 				)
-			case 'positive':
+			case true:
 				return (
                     <ResultMessage 
                         heading={STRINGS.DANGER}
@@ -41,28 +61,31 @@ class SurveyResults extends Component {
                         onPress={() => this.onComplete()}
                     />
                 )
-            case 'loading':
-                return (
-                    <View>
-                        <ActivityIndicator size="large" color={COLOR.PRIMARY} />
-                        <ActivityIndicator size="small" color={COLOR.PRIMARY} />
-                    </View> 
-                )
 			default:
 				return <View />
 		}
 	}
 
     render() {
+        if(this.state.isLoading){
+            return(
+              <View style={{flex: 1, padding: 20}}>
+                <ActivityIndicator size="large" color={COLOR.PRIMARY} />
+              </View>
+            )
+        }
+        
         return (
             <View style={css.container}>
-                {this.getResults('loading')}
+                {this.getResults()}
             </View>
         )
     }
 }
 
-const mapStateToProps = (state, props) => ({})
+const mapStateToProps = (state, props) => ({
+    answers: state.survey.answers
+})
 
 const mapDispatchToProps = dispatch => ({})
 
