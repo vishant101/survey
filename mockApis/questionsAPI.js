@@ -3,7 +3,7 @@ module.exports = {
 		{
 			'id': '001',
 			'type': 'boolean',
-			'text': 'Have you had fever over the last 5 days',
+			'text': 'Have you had fever over the last 5 days?',
 		},
 		{
 			'id': '002',

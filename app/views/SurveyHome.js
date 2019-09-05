@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Image, TouchableOpacity  } from 'react-native'
+import Button from '../common/Button'
 import { connect } from 'react-redux';
 import COLOR from '../styles/Colors'
 import css from '../styles/CSS'
-import { BUTTONTEXT, VIEWS } from '../utils/Constants'
+import { BUTTONTEXT, VIEWS, STRINGS } from '../utils/Constants'
 import { RESPONSE } from '../../mockApis/questionsAPI'
 
 class SurveryHome extends Component {
@@ -25,12 +26,9 @@ class SurveryHome extends Component {
     render() {
         return (
             <View style={css.container}>
-                <Text>Click the button below to start the survey</Text>
-                <Button
-                    title={BUTTONTEXT.START}
-                    color={COLOR.PRIMARY}
-                    onPress={() => this.onStartButtonPress()}
-                />
+                <Image source={require('../img/doctor.png')} />
+                <Text style={css.homeTextStyle}>{STRINGS.HOMETEXT}</Text>
+                <Button text={BUTTONTEXT.START} onPress={() => this.onStartButtonPress()} />
             </View>
         )
     }

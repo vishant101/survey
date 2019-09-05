@@ -17,5 +17,9 @@ const BUTTONTEXT = {
     START_OVER: 'Start Over'
 }
 
+const STRINGS = {
+    HOMETEXT: 'Welcome to the DigiDoc! Click the start button to complete a short survey to identify if you have a flu.'
+}
 
-module.exports = { BUTTONTEXT, VIEWS, CARDTYPES }
+
+module.exports = { BUTTONTEXT, VIEWS, CARDTYPES, STRINGS }

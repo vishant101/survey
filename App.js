@@ -9,15 +9,25 @@ import { createStore } from 'redux';
 import survey from './app/reducers/SurveyReducer';
 import SurveyHome from './app/views/SurveyHome'
 import SurveyQuestions from './app/views/SurveyQuestions'
+import COLOR from './app/styles/Colors'
+import css from './app/styles/CSS'
 
 const store = createStore(survey)
 
 const stackNav = createStackNavigator({
     Home: {
-        screen: SurveyHome
+        screen: SurveyHome,
+        navigationOptions: {
+            title: 'DigiDoc',
+            headerTitleStyle : css.nb_homeTextStyle
+        }
     },
     Questions: {
-        screen: SurveyQuestions
+        screen: SurveyQuestions,
+        navigationOptions: {
+            title: 'Questionaire',
+            headerTitleStyle : css.nb_viewsTextStyle
+        }
     }
 })
 

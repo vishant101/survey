@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { View, Text, TextInput, Button } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import css from '../styles/CSS'
 import COLOR from '../styles/Colors'
+import Button from './Button'
 
 export default class QuestionBody extends Component {
 	constructor(props) {
@@ -15,13 +16,11 @@ export default class QuestionBody extends Component {
 				return ( 
 					<View>
 						<Button
-							title='Yes'
-							color={COLOR.PRIMARY}
+							text='Yes'
 							onPress={() => onPress(id, 'true')}
 						/>
 						<Button
-							title='No'
-							color={COLOR.PRIMARY}
+							text='No'
 							onPress={() => onPress(id, 'false')}
 						/>
 					</View>
@@ -37,8 +36,7 @@ export default class QuestionBody extends Component {
 							keyboardType='numeric'
 						/>
 						<Button
-							title='Enter Value'
-							color={COLOR.PRIMARY}
+							text='Enter Value'
 							onPress={() => onPress(id, this.state.value)}
 						/>
 					</View>
@@ -52,7 +50,7 @@ export default class QuestionBody extends Component {
 		const {type, question, id, onPress} = this.props
 		return (
 			<View style={css.cb_bodyContainer}>
-				<Text>{question}</Text>
+				<Text style={css.cb_textStyle}>{question}</Text>
 				{this.getInputType(type, id, onPress)}
 			</View>
 		)
