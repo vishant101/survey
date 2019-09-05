@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, Alert } from 'react-native'
 import css from '../styles/CSS'
 import COLOR from '../styles/Colors'
 import Button from './Button'
@@ -12,10 +12,17 @@ export default class QuestionBody extends Component {
 	}
 
 	submitValue(id, onPress){
-		const value = this.state.value
-		onPress(id, parseFloat(value))
+		const value = parseFloat(this.state.value)
+		if (value == null || value.length == 0 || isNaN(value)) {
+			Alert.alert(
+				'Enter Valid Number',
+				'Please enter a valid number in Celcius'
+			)
+		} else {
+			onPress(id, value)
+		}
 	}
-
+		
 	getInputType(type, id, onPress) {
 		switch(type) {
 			case 'boolean':
