@@ -3,6 +3,7 @@ import { View, Text, TextInput } from 'react-native'
 import css from '../styles/CSS'
 import COLOR from '../styles/Colors'
 import Button from './Button'
+import { STRINGS, BUTTONTEXT } from '../utils/Constants'
 
 export default class QuestionBody extends Component {
 	constructor(props) {
@@ -16,11 +17,11 @@ export default class QuestionBody extends Component {
 				return ( 
 					<View>
 						<Button
-							text='Yes'
+							text={BUTTONTEXT.YES}
 							onPress={() => onPress(id, 'true')}
 						/>
 						<Button
-							text='No'
+							text={BUTTONTEXT.NO}
 							onPress={() => onPress(id, 'false')}
 						/>
 					</View>
@@ -29,20 +30,21 @@ export default class QuestionBody extends Component {
 				return (
 					<View>
 						<TextInput
-							style={{height: 40}}
+							style={css.textInputStyle}
 							placeholder="Input value here"
 							onChangeText={(value) => this.setState({value})}
 							value={this.state.value}
 							keyboardType='numeric'
+							maxLength={6}
 						/>
 						<Button
-							text='Enter Value'
+							text={BUTTONTEXT.ENTERVALUE}
 							onPress={() => onPress(id, this.state.value)}
 						/>
 					</View>
 				)
 			default:
-			  return 'foo';
+				return <View />
 		  }
 	}
 

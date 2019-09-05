@@ -1,6 +1,7 @@
 const COLOR = {
     PRIMARY: '#1CAEC9',
-    MGREY: '#EAEAEA',
+    MGREY: '#808080',
+    DGREY: '#565656',
     WHITE: '#FFFFFF',
 }
 

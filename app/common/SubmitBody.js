@@ -3,21 +3,22 @@ import { View, Text } from 'react-native'
 import css from '../styles/CSS'
 import COLOR from '../styles/Colors'
 import Button from './Button'
+import { STRINGS, BUTTONTEXT } from '../utils/Constants'
 
 export default class SubmitBody extends Component {
 	render() {
 		const {onPress} = this.props
 		return (
 			<View style={css.cb_bodyContainer}>
-				<Text style={css.cb_textStyle}> If you would like to Submit please click submit, if you would like to start over click start over </Text>
+				<Text style={css.cb_textStyle}>{STRINGS.SUBMITTEXT}</Text>
 				<Button
-					text='Start Over'
-					onPress={() => onPress(false)}
-				/>
-				<Button
-					text='Submit'
+					text={BUTTONTEXT.SUBMIT}
 					onPress={() => onPress(true)}
 				/>	
+				<Button
+					text={BUTTONTEXT.STARTOVER}
+					onPress={() => onPress(false)}
+				/>
 			</View>
 		)
 	}

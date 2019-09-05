@@ -30,7 +30,7 @@ class SurveyCard extends Component {
     showSubmitCard(){
         return(
             <View style={css.card_container} >
-                <CardHeader title={"Submit ?"}/>
+                <CardHeader title={"Submit?"}/>
                 <SubmitBody
                     onPress={(submit) => this.onSubmitPress(submit)}
                 />
