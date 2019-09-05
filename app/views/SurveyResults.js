@@ -5,7 +5,8 @@ import ResultMessage from '../common/ResultMessage'
 import { connect } from 'react-redux';
 import COLOR from '../styles/Colors'
 import css from '../styles/CSS'
-import { BUTTONTEXT, VIEWS, STRINGS } from '../utils/Constants'
+import { BUTTONTEXT, VIEWS, STRINGS, REQUESTTYPES, HEADERS } from '../utils/Constants'
+import { RESULTS_API_URL } from '../utils/APIs'
 import IMAGES from '../utils/Images'
 import { RESPONSE } from '../../mockApis/questionsAPI'
 
@@ -13,11 +14,15 @@ class SurveyResults extends Component {
     constructor(props){
         super(props);
         this.state = {isLoading: true}
+    }
 
+    onComplete(){
+        const { navigation } = this.props
+        navigation.navigate(VIEWS.HOME)
     }
 
     componentDidMount(){
-        return fetch('https://11po8h5h75.execute-api.us-east-2.amazonaws.com/prod', this.getRequest())
+        return fetch(RESULTS_API_URL, this.buildRequest())
           .then((response) => response.json())
           .then((responseJson) => { 
               this.setState({ isLoading: false, results: responseJson.body.hasFlu }) 
@@ -25,20 +30,16 @@ class SurveyResults extends Component {
           .catch((error) => {console.error(error)})
     }
 
-    getRequest(){
+    buildRequest(){
         const request = {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
+            method: REQUESTTYPES.POST,
+            headers: HEADERS.JSON,
             body: JSON.stringify(this.props.answers),
         }
-
         return request
     }
 
-    getResults() {
+    showResults() {
         console.log(this.state.results)
 		switch(this.state.results) {
 			case false:
@@ -62,7 +63,7 @@ class SurveyResults extends Component {
                     />
                 )
 			default:
-				return <View />
+				return <Text>ERROR</Text>
 		}
 	}
 
@@ -73,13 +74,13 @@ class SurveyResults extends Component {
                 <ActivityIndicator size="large" color={COLOR.PRIMARY} />
               </View>
             )
+        } else {
+            return (
+                <View style={css.container}>
+                    {this.showResults()}
+                </View>
+            )
         }
-        
-        return (
-            <View style={css.container}>
-                {this.getResults()}
-            </View>
-        )
     }
 }
 

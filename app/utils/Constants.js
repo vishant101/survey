@@ -28,4 +28,13 @@ const STRINGS = {
     NODANGER: 'Everything seems to be ok!'
 }
 
-module.exports = { BUTTONTEXT, VIEWS, CARDTYPES, STRINGS }
+const REQUESTTYPES = {
+    POST: 'POST',
+    GET: 'GET'
+}
+
+const HEADERS = {
+    JSON: { Accept: 'application/json', 'Content-Type': 'application/json'}
+}
+
+module.exports = { BUTTONTEXT, VIEWS, CARDTYPES, STRINGS, REQUESTTYPES, HEADERS }
