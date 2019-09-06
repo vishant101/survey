@@ -20,7 +20,8 @@ const stackNav = createStackNavigator({
         screen: SurveyHome,
         navigationOptions: {
             title: 'DigiDoc',
-            headerTitleStyle : css.nb_homeTextStyle
+            headerTitleStyle : css.nb_homeTextStyle,
+            headerLeft: null
         }
     },
     Questions: {
@@ -34,7 +35,7 @@ const stackNav = createStackNavigator({
         screen: SurveyResults,
         navigationOptions: {
             title: 'Results',
-            headerTitleStyle : css.nb_viewsTextStyle
+            headerTitleStyle : css.nb_viewsTextStyle,
         }
     }
 })

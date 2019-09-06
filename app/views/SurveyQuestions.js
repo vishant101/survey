@@ -8,7 +8,7 @@ import { VIEWS } from '../utils/Constants'
 export default class SurveryQuestions extends Component {
     onComplete(){
         const { navigation } = this.props
-        navigation.navigate(VIEWS.RESULTS)
+        navigation.replace(VIEWS.RESULTS)
     }
 
     render() {

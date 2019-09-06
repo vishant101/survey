@@ -12,13 +12,13 @@ import { RESPONSE } from '../../mockApis/questionsAPI'
 
 class SurveyResults extends Component {
     constructor(props){
-        super(props);
+        super(props)
         this.state = {isLoading: true}
     }
 
     onComplete(){
         const { navigation } = this.props
-        navigation.navigate(VIEWS.HOME)
+        navigation.replace(VIEWS.HOME)
     }
 
     componentDidMount(){
@@ -27,7 +27,10 @@ class SurveyResults extends Component {
           .then((responseJson) => { 
               this.setState({ isLoading: false, results: responseJson.body.hasFlu }) 
             })
-          .catch((error) => {console.error(error)})
+          .catch((error) => {
+             this.setState({ isLoading: false }),
+             console.log(error)
+            })
     }
 
     buildRequest(){
@@ -63,7 +66,15 @@ class SurveyResults extends Component {
                     />
                 )
 			default:
-				return <Text>ERROR</Text>
+				return (
+                    <ResultMessage 
+                        heading={STRINGS.ERROR}
+                        buttonText={BUTTONTEXT.CLOSE}
+                        image={IMAGES.CROSS}
+                        message={STRINGS.ERRORMESSAGE}
+                        onPress={() => this.onComplete()}
+                    />
+                )
 		}
 	}
 

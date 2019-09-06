@@ -3,7 +3,7 @@ import { View, Text, TextInput, Alert } from 'react-native'
 import css from '../styles/CSS'
 import COLOR from '../styles/Colors'
 import Button from './Button'
-import { STRINGS, BUTTONTEXT } from '../utils/Constants'
+import { STRINGS, BUTTONTEXT, KEYBOARDTYPES } from '../utils/Constants'
 
 export default class QuestionBody extends Component {
 	constructor(props) {
@@ -14,10 +14,7 @@ export default class QuestionBody extends Component {
 	submitValue(id, onPress){
 		const value = parseFloat(this.state.value)
 		if (value == null || value.length == 0 || isNaN(value)) {
-			Alert.alert(
-				'Enter Valid Number',
-				'Please enter a valid number in Celcius'
-			)
+			Alert.alert(STRINGS.ALERTHEADER, STRINGS.ALERTMESSAGE)
 		} else {
 			onPress(id, value)
 		}
@@ -43,10 +40,10 @@ export default class QuestionBody extends Component {
 					<View>
 						<TextInput
 							style={css.textInputStyle}
-							placeholder="Input value here"
+							placeholder={STRINGS.PLACEHOLDER}
 							onChangeText={(value) => this.setState({value})}
 							value={this.state.value}
-							keyboardType='numeric'
+							keyboardType={KEYBOARDTYPES.NUMERIC}
 							maxLength={6}
 						/>
 						<Button
