@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { View, Text } from 'react-native'
 import css from '../styles/CSS'
-import COLOR from '../styles/Colors'
 import Button from './Button'
 import { STRINGS, BUTTONTEXT } from '../utils/Constants'
 

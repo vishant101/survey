@@ -1,38 +1,37 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TouchableOpacity  } from 'react-native'
+import { Text, View, Image } from 'react-native'
 import Button from '../common/Button'
 import { connect } from 'react-redux';
-import COLOR from '../styles/Colors'
 import css from '../styles/CSS'
 import { BUTTONTEXT, VIEWS, STRINGS } from '../utils/Constants'
 import IMAGES from '../utils/Images'
 import { RESPONSE } from '../../mockApis/questionsAPI'
 
 class SurveryHome extends Component {
-    constructor(props) {
-        super(props)
-        this.loadQuestions()
-    }
+	constructor(props) {
+		super(props)
+		this.loadQuestions()
+	}
 
-    loadQuestions(){
-        // TODO: Fetch questions using API
-        this.props.addQuestions(RESPONSE)
-    }
+	loadQuestions(){
+		// TODO: Fetch questions using API
+		this.props.addQuestions(RESPONSE)
+	}
 
-    onStartButtonPress(){
-        const { navigation } = this.props
-        navigation.navigate(VIEWS.QUESTIONS)
-    }
+	onStartButtonPress(){
+		const { navigation } = this.props
+		navigation.navigate(VIEWS.QUESTIONS)
+	}
 
-    render() {
-        return (
-            <View style={css.container}>
-                <Image source={IMAGES.DOCTOR} />
-                <Text style={css.containerTextStyle}>{STRINGS.HOMETEXT}</Text>
-                <Button text={BUTTONTEXT.START} onPress={() => this.onStartButtonPress()} />
-            </View>
-        )
-    }
+	render() {
+		return (
+			<View style={css.container}>
+				<Image source={IMAGES.DOCTOR} />
+				<Text style={css.containerTextStyle}>{STRINGS.HOMETEXT}</Text>
+				<Button text={BUTTONTEXT.START} onPress={() => this.onStartButtonPress()} />
+			</View>
+		)
+	}
 }
 
 const mapStateToProps = (state, props) => ({})

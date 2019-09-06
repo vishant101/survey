@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { View, Text, TextInput, Alert } from 'react-native'
 import css from '../styles/CSS'
-import COLOR from '../styles/Colors'
 import Button from './Button'
 import { STRINGS, BUTTONTEXT, KEYBOARDTYPES } from '../utils/Constants'
 
