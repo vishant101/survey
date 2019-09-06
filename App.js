@@ -28,6 +28,7 @@ const stackNav = createStackNavigator({
         screen: SurveyQuestions,
         navigationOptions: {
             title: 'Questionaire',
+            headerTintColor: COLOR.DGREY,
             headerTitleStyle : css.nb_viewsTextStyle
         }
     },
@@ -35,6 +36,7 @@ const stackNav = createStackNavigator({
         screen: SurveyResults,
         navigationOptions: {
             title: 'Results',
+            headerTintColor: COLOR.DGREY,
             headerTitleStyle : css.nb_viewsTextStyle,
         }
     }
