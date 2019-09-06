@@ -2,6 +2,19 @@
 A simple React-Native survey app to identify if a user has the flu.
 
 
+## Getting Started
+1. Complete the [React Native CLI Quickstart](https://facebook.github.io/react-native/docs/getting-started.html) setup instructions.
+
+2. Clone the repo:
+- `git clone https://github.com/vishant101/survey.git`
+
+4. Install node modules:
+- `npm i`
+
+5. Run Campus Mobile:
+- iOS: `react-native run-ios`
+- Android: `react-native run-android`
+
 ## Screenshots
 | Home | Question 1 | Question 2 |
 |------|---------|-----|
