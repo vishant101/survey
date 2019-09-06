@@ -31,7 +31,7 @@ const STRINGS = {
     ERROR: 'ERROR',
     PLACEHOLDER: 'Input value here',
     ALERTHEADER: 'Enter Valid Number',
-    ALERTMESSAGE: 'Please enter a valid number in degrees Celcius.',
+    ALERTMESSAGE: 'Please enter a valid number in degrees Celsius.',
     ERRORMESSAGE: 'Something went wrong please try again later'
 }
 

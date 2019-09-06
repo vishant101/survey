@@ -8,7 +8,7 @@ module.exports = {
 		{
 			'id': 'q2',
 			'type': 'integer',
-			'text': 'Whats your current temprature readng? (Degrees Celcius)',
+			'text': 'Whats your current temprature readng? (Degrees Celsius)',
         },
         {
 			'id': 'q3',
