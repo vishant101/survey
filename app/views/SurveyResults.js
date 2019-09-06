@@ -8,7 +8,9 @@ import css from '../styles/CSS'
 import { BUTTONTEXT, VIEWS, STRINGS, REQUESTTYPES, HEADERS } from '../utils/Constants'
 import { RESULTS_API_URL } from '../utils/APIs'
 import IMAGES from '../utils/Images'
+import ASSETS from '../utils/Assets'
 import { RESPONSE } from '../../mockApis/questionsAPI'
+import AnimatedLoader from 'react-native-animated-loader';
 
 class SurveyResults extends Component {
     constructor(props){
@@ -81,9 +83,14 @@ class SurveyResults extends Component {
     render() {
         if(this.state.isLoading){
             return(
-              <View style={{flex: 1, padding: 20}}>
-                <ActivityIndicator size="large" color={COLOR.PRIMARY} />
-              </View>
+                <View style={{flex: 1, padding: 20}}>
+                    <AnimatedLoader
+                        visible={this.state.isLoading}                
+                        animationStyle={css.lottie}          
+                        speed={1}
+                        source={ASSETS.SPINNER}
+                    /> 
+                </View>
             )
         } else {
             return (
@@ -94,6 +101,7 @@ class SurveyResults extends Component {
         }
     }
 }
+
 
 const mapStateToProps = (state, props) => ({
     answers: state.survey.answers

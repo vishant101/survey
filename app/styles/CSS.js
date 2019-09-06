@@ -33,6 +33,7 @@ const css = StyleSheet.create({
     cb_bodyContainer: { backgroundColor: COLOR.WHITE, height: 300, borderBottomLeftRadius: 20, borderBottomRightRadius: 20, alignItems: 'center', borderBottomWidth: 3,  borderRightWidth: 3, borderLeftWidth: 3, borderColor: COLOR.MGREY, },
     cb_textStyle: { color: COLOR.DGREY, marginLeft: 30, marginRight: 30, fontSize: 18, height: 90, paddingLeft: 10, paddingVertical: 10, textAlign: "center", justifyContent: 'center' },
 
+    lottie: { width: 300, height: 300}
   })
   
   module.exports = css
