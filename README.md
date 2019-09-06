@@ -8,10 +8,10 @@ A simple React-Native survey app to identify if a user has the flu.
 2. Clone the repo:
 - `git clone https://github.com/vishant101/survey.git`
 
-4. Install node modules:
+3. Install node modules:
 - `npm i`
 
-5. Run Campus Mobile:
+4. Run Campus Mobile:
 - iOS: `react-native run-ios`
 - Android: `react-native run-android`
 
