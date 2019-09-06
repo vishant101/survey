@@ -1,5 +1,5 @@
 # Digidoc 
-A simple React-Native survey app to identify if a user has the flu.
+A simple React-Native survey app to identify if a user has the flu. Note: the app ahs only been built and tested for Android devices. iOS functionality may vary.
 
 
 ## Getting Started
