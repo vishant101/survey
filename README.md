@@ -23,3 +23,6 @@ A simple React-Native survey app to identify if a user has the flu. Note: the ap
 | Question 3 | Submit | Results |
 |--------|--------|------|
 | <img src="https://github.com/vishant101/survey/blob/master/screenshots/question3.png" width="275" alt="Question3" title="Question 3" /> | <img src="https://github.com/vishant101/survey/blob/master/screenshots/submit.png" width="275" alt="Submit" title="Submit" /> | <img src="https://github.com/vishant101/survey/blob/master/screenshots/results.png" width="275" alt="Results" title="Results" /> |
+
+## License
+MIT
