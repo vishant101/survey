@@ -1,5 +1,5 @@
 # Digidoc 
-A simple React-Native survey app to identify if a user has the flu.The user answers a questionaire and then the results are uploaded to a backend service hosted on AWS which returns either a negative or positive flu results
+A React-Native survey app to identify if a user has the flu. The user answers a questionaire and then the results are uploaded to a backend service hosted on AWS which returns either negative or positive flu results.
 
 Note: the app ahs only been built and tested for Android devices. iOS functionality may vary.
 
